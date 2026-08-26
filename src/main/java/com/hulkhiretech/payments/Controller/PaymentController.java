@@ -3,6 +3,8 @@ package com.hulkhiretech.payments.Controller;
 import com.hulkhiretech.payments.Constant.APIEndponits;
 import com.hulkhiretech.payments.DTO.PaymentRequest;
 import com.hulkhiretech.payments.DTO.PaymentResponce;
+import com.hulkhiretech.payments.Service.Interfaces.PaymentService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,21 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(APIEndponits.PAYMENT_VALIDATION)
 @Slf4j
+@RequiredArgsConstructor
 public class PaymentController {
+
+    private final PaymentService paymentService;
 
     @PostMapping
     public ResponseEntity<PaymentResponce> createPayment(@RequestBody PaymentRequest paymentRequest) {
 
         log.info("Payment request received {}",paymentRequest);
 
+        //call to the service layer to validate and create payment
+        String txnReference = paymentService.validateAndCreatePayment(paymentRequest);
 
-        PaymentResponce paymentResponce = new PaymentResponce();
-        paymentResponce.setTxnRefference("TXN_123456789");
-        paymentResponce.setHostedPageUrl("https://example.com/payment-page");
+        PaymentResponce paymentResponce = new PaymentResponce
+                (txnReference, "https://example.com/payment-page");
 
-        //create a response entity with the payment response and return it with a CREATED status
-        return ResponseEntity.status(HttpStatus.CREATED).body(paymentResponce);
-
+        ResponseEntity<PaymentResponce> responseEntity = new ResponseEntity<>(paymentResponce, HttpStatus.OK);
+        log.info("Payment response sent {}",responseEntity);
+        return responseEntity;
 
     }
 

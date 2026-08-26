@@ -9,6 +9,6 @@ public class PaymentResponce {
 
     private String txnRefference;
 
-    private String HostedPageUrl;
+    private String HostedPaymentPageUrl;
 
 }
