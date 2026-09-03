@@ -1,7 +1,5 @@
-package com.hulkhiretech.payments.DTO;
+package com.hulkhiretech.payments.Pojo;
 
-import com.hulkhiretech.payments.Pojo.Payment;
-import com.hulkhiretech.payments.Pojo.User;
 import lombok.*;
 
 

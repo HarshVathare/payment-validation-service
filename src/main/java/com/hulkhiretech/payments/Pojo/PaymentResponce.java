@@ -1,4 +1,4 @@
-package com.hulkhiretech.payments.DTO;
+package com.hulkhiretech.payments.Pojo;
 
 import lombok.*;
 

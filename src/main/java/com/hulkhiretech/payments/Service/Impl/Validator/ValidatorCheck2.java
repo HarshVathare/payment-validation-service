@@ -1,6 +1,6 @@
 package com.hulkhiretech.payments.Service.Impl.Validator;
 
-import com.hulkhiretech.payments.DTO.PaymentRequest;
+import com.hulkhiretech.payments.Pojo.PaymentRequest;
 import com.hulkhiretech.payments.Service.Interfaces.BusinessValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

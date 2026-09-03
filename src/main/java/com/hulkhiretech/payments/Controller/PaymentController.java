@@ -1,8 +1,8 @@
 package com.hulkhiretech.payments.Controller;
 
 import com.hulkhiretech.payments.Constant.APIEndponits;
-import com.hulkhiretech.payments.DTO.PaymentRequest;
-import com.hulkhiretech.payments.DTO.PaymentResponce;
+import com.hulkhiretech.payments.Pojo.PaymentRequest;
+import com.hulkhiretech.payments.Pojo.PaymentResponce;
 import com.hulkhiretech.payments.Service.Interfaces.PaymentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
