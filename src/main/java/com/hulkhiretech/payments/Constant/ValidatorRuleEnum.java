@@ -1,5 +1,6 @@
 package com.hulkhiretech.payments.Constant;
 
+import com.hulkhiretech.payments.Service.Impl.Validator.DublicateTxnCheck;
 import com.hulkhiretech.payments.Service.Impl.Validator.ValidatorCheck1;
 import com.hulkhiretech.payments.Service.Impl.Validator.ValidatorCheck2;
 import com.hulkhiretech.payments.Service.Interfaces.BusinessValidator;
@@ -10,8 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public enum ValidatorRuleEnum {
 
-    CHECK1("CHECK1", ValidatorCheck1.class),
-    CHECK2("CHECK2", ValidatorCheck2.class);
+    DUBLICATE_TXN_RULE("DUBLICATE_TXN_RULE", DublicateTxnCheck.class);
+//    CHECK1("CHECK1", ValidatorCheck1.class),
+//    CHECK2("CHECK2", ValidatorCheck2.class);
 
     private final String name;
     private final Class<? extends BusinessValidator> validatorClass;
@@ -28,7 +30,7 @@ public enum ValidatorRuleEnum {
                 return rule.getValidatorClass();
             }
         }
-//        throw new IllegalArgumentException("No validator found for name: " + name);
+    //  throw new IllegalArgumentException("No validator found for name: " + name);
         log.error("Validator Class not found for name: {}", name);
         return null;
     }

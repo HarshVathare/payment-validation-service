@@ -8,34 +8,45 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 public enum ErrorCodeEnum {
 
-    INTERNAL_SERVER_ERROR(
+    GENERIC_ERROR(
             "10000",
-            "An unexpected error occurred",
+            "An unexpected error occurred. Please try again later.",
             HttpStatus.INTERNAL_SERVER_ERROR
     ),
 
-    INVALID_USER_NAME(
-            "10001",
-            "User first name and last name cannot be empty",
-            HttpStatus.BAD_REQUEST
-    ),
-
-    INVALID_PAYMENT_AMOUNT(
-            "10002",
-            "Payment amount must be greater than zero",
-            HttpStatus.BAD_REQUEST
-    ),
-
     VALIDATION_CLASS_NOT_FOUND(
-            "10003",
+            "10001",
             "Validation class not found",
             HttpStatus.INTERNAL_SERVER_ERROR
     ),
 
     VALIDATION_BEAN_NOT_FOUND(
-            "10004",
+            "10002",
             "Validation bean not found",
-            HttpStatus.INTERNAL_SERVER_ERROR);
+            HttpStatus.INTERNAL_SERVER_ERROR
+    ),
+
+    OBJ_TO_JSON_CONVERSION_ERROR(
+            "10003",
+            "Error converting object to JSON",
+            HttpStatus.INTERNAL_SERVER_ERROR
+    ),
+
+    JSON_TO_OBJ_CONVERSION_ERROROBJ_TO_JSON_CONVERSION_ERROR(
+            "10004",
+            "Error converting JSON to object",
+            HttpStatus.INTERNAL_SERVER_ERROR
+    ), INVALID_MERCHANT_TXN_REF(
+            "10005",
+            "Invalid merchant transaction reference",
+            HttpStatus.BAD_REQUEST
+    ),
+    DUPLICATE_MERCHANT_TXN_REF(
+            "10006",
+            "Duplicate merchant transaction reference, Please check your request and try again",
+            HttpStatus.BAD_REQUEST
+    );
+
 
     private final String errorCode;
     private final String errorMessage;

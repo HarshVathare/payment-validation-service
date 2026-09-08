@@ -15,22 +15,22 @@ public class ValidatorCheck1 implements BusinessValidator {
     public void validate(PaymentRequest req) {
         log.info("ValidatorCheck1: Validating payment "+"req : {}", req);
 
-        // Add your validation logic here
-        if(req.getUser().getFirstName().isEmpty() || req.getUser().getLastName().isEmpty()){
-            throw new PaymentValidationException(
-                    ErrorCodeEnum.INVALID_USER_NAME.getErrorCode(),
-                    ErrorCodeEnum.INVALID_USER_NAME.getErrorMessage(),
-                    ErrorCodeEnum.INVALID_USER_NAME.getHttpStatus()
-            );
-        }
-
-        if( (req.getPayment().getTotalAmount() <= 0 ) || ( req.getPayment().getTotalAmount() == null) ){
-            throw new PaymentValidationException(
-                     ErrorCodeEnum.INVALID_PAYMENT_AMOUNT.getErrorCode(),
-                    ErrorCodeEnum.INVALID_PAYMENT_AMOUNT.getErrorMessage(),
-                    ErrorCodeEnum.INVALID_PAYMENT_AMOUNT.getHttpStatus()
-            );
-        }
+//        // Add your validation logic here
+//        if(req.getUser().getFirstName().isEmpty() || req.getUser().getLastName().isEmpty()){
+//            throw new PaymentValidationException(
+//                    ErrorCodeEnum.INVALID_USER_NAME.getErrorCode(),
+//                    ErrorCodeEnum.INVALID_USER_NAME.getErrorMessage(),
+//                    ErrorCodeEnum.INVALID_USER_NAME.getHttpStatus()
+//            );
+//        }
+//
+//        if( (req.getPayment().getTotalAmount() <= 0 ) || ( req.getPayment().getTotalAmount() == null) ){
+//            throw new PaymentValidationException(
+//                     ErrorCodeEnum.INVALID_PAYMENT_AMOUNT.getErrorCode(),
+//                    ErrorCodeEnum.INVALID_PAYMENT_AMOUNT.getErrorMessage(),
+//                    ErrorCodeEnum.INVALID_PAYMENT_AMOUNT.getHttpStatus()
+//            );
+//        }
 
 
 

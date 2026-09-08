@@ -26,8 +26,8 @@ public class GlobalExceptionHandler {
             Exception ex) {
 
         ErrorResponce errorResponse = new ErrorResponce();
-        errorResponse.setErrorCode(ErrorCodeEnum.INTERNAL_SERVER_ERROR.getErrorCode());
-        errorResponse.setErrorMessage(ErrorCodeEnum.INTERNAL_SERVER_ERROR.getErrorMessage());
+        errorResponse.setErrorCode(ErrorCodeEnum.GENERIC_ERROR.getErrorCode());
+        errorResponse.setErrorMessage(ErrorCodeEnum.GENERIC_ERROR.getErrorMessage());
 
         return ResponseEntity.status(500).body(errorResponse);
     }
