@@ -1,24 +1,27 @@
 package com.hulkhiretech.payments.Constant;
 
+import com.hulkhiretech.payments.Repository.ValidationRuleRepository;
 import com.hulkhiretech.payments.Service.Impl.Validator.DublicateTxnCheck;
+import com.hulkhiretech.payments.Service.Impl.Validator.PaymentAttemptThreshold;
 import com.hulkhiretech.payments.Service.Impl.Validator.ValidatorCheck1;
 import com.hulkhiretech.payments.Service.Impl.Validator.ValidatorCheck2;
 import com.hulkhiretech.payments.Service.Interfaces.BusinessValidator;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Slf4j
 public enum ValidatorRuleEnum {
 
-    DUBLICATE_TXN_RULE("DUBLICATE_TXN_RULE", DublicateTxnCheck.class);
-//    CHECK1("CHECK1", ValidatorCheck1.class),
-//    CHECK2("CHECK2", ValidatorCheck2.class);
+    DUPLICATION_TXN_RULE("DUPLICATION_TXN_RULE", DublicateTxnCheck.class),
+    PAYMENT_ATTEMPT_THRESHOLD_RULE("PAYMENT_ATTEMPT_THRESHOLD_RULE", PaymentAttemptThreshold.class);
 
     private final String name;
     private final Class<? extends BusinessValidator> validatorClass;
 
-    ValidatorRuleEnum(String name, Class<? extends BusinessValidator> validatorClass) {
+    ValidatorRuleEnum( String name, Class<? extends BusinessValidator> validatorClass) {
         this.name = name;
         this.validatorClass = validatorClass;
     }

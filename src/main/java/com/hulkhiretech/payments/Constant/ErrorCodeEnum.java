@@ -43,7 +43,7 @@ public enum ErrorCodeEnum {
     ),
     DUPLICATE_MERCHANT_TXN_REF(
             "10006",
-            "Duplicate merchant transaction reference, Please check your request and try again",
+            "Duplicate merchant transaction reference found",
             HttpStatus.BAD_REQUEST
     );
 

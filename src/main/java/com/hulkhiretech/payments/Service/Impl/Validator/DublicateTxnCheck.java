@@ -59,7 +59,7 @@ public class DublicateTxnCheck implements BusinessValidator {
 
             throw new PaymentValidationException(
                     ErrorCodeEnum.DUPLICATE_MERCHANT_TXN_REF.getErrorCode(),
-                    ErrorCodeEnum.DUPLICATE_MERCHANT_TXN_REF.getErrorMessage(),
+                    ErrorCodeEnum.DUPLICATE_MERCHANT_TXN_REF.getErrorMessage()+ " merchantTxnRef : "+merchantTxnRef,
                     ErrorCodeEnum.DUPLICATE_MERCHANT_TXN_REF.getHttpStatus()
             );
         }
